@@ -1,11 +1,18 @@
 def calc(s_calc)
     num_list = []
     op_list = []
+    is_pre_num = true
     s_calc.each_char {
         |c| if ['+', '*', '-', '/', '(', ')'].include?(c) then 
                 op_list.push(c)
+                is_pre_num = false
             else
-                num_list.push(c)
+                if is_pre_num then
+                    num_list.push("#{num_list.pop}#{c.to_i}".to_i) 
+                else
+                    num_list.push(c.to_i)
+                end
+                is_pre_num = true
             end
     }
     num_tmp1 = 0
@@ -21,4 +28,4 @@ def calc(s_calc)
     return num_list[0]
 end
 
-p calc("1+2+3+4+7+7+8+9-9-9-9")
+p calc("110*90")

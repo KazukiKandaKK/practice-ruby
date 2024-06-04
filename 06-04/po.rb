@@ -18,7 +18,7 @@ def calc(s_calc)
         op_tmp = op_list.pop
         num_list.push(eval("#{num_tmp1}#{op_tmp}#{num_tmp2}"))
     end
-    p num_list[0]
+    return num_list[0]
 end
 
-calc("1+2+3+4+7+7+8+9-9-9-9")
+p calc("1+2+3+4+7+7+8+9-9-9-9")

@@ -28,4 +28,4 @@ def calc(s_calc)
     return num_list[0]
 end
 
-p calc("110*90")
+p calc("10+90*10")

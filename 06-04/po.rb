@@ -3,7 +3,7 @@ def calc(s_calc)
     op_list = []
     is_pre_num = true
     s_calc.each_char {
-        |c| if ['+', '*', '-', '/', '(', ')'].include?(c) then 
+        |c| if ['+', '*', '-', '/', '(', ')'].include?(c) then
                 op_list.push(c)
                 is_pre_num = false
             else
@@ -20,12 +20,21 @@ def calc(s_calc)
     op_tmp1 = 0
     op_tmp2 = 0
     while num_list.length!=0 && op_list.length!=0 
+        pre = false
         num_tmp1 = num_list.pop.to_i
         num_tmp2 = num_list.pop.to_i
         op_tmp = op_list.pop
-        num_list.push(eval("#{num_tmp1}#{op_tmp}#{num_tmp2}"))
+        if ['+', '*', '-', '/'].include?(op_tmp) then 
+            num_list.push(eval("#{num_tmp1}#{op_tmp}#{num_tmp2}"))
+        elsif ['(', ')'].include?(op_tmp) then
+            if pre then
+                pre = false
+            else
+                pre = true
+            end
+        end
     end
     return num_list[0]
 end
 
-p calc("10+90*10")
+p calc("10+90")

@@ -30,17 +30,13 @@ def calc(s_calc)
             is_pre_num = false
             next
         end
-        # contain number.
-        if num_list.length>=1 && op_list.length==1 then
-            num_list.push(c.to_i)
-            apply_operator(op_list, num_list)
         # if input the two-digit.
-        elsif is_pre_num then
+        if is_pre_num then
             num_list.push("#{num_list.pop}#{c.to_i}".to_i) 
-        # other case push stack.
-        else
-            num_list.push(c.to_i)
+            next
         end
+        num_list.push(c.to_i)
+        apply_operator(op_list, num_list)
         is_pre_num = true
     end
     return num_list[0]

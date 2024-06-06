@@ -25,4 +25,4 @@ def calc(s_calc)
     return num_list[0]
 end
 
-p calc("6/3")
+p calc(ARGV[0])

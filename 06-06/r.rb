@@ -1,3 +1,7 @@
+######################################################
+# Practicing Ruby by calculating expressions entered
+# from the command line in reverse Polish notation.
+######################################################
 def calc(s_calc)
     num_list = []
     op_list = []

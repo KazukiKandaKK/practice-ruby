@@ -9,7 +9,9 @@ def apply_operator(op_list, num_list)
     b = num_list.pop
     case op
     when "+"
-        num_list.push(b+a)
+        s = (b|a)&(~(b&a))
+        c = (b&a)
+        num_list.push(s|c)
     when "-"
         num_list.push(b-a)
     when "*"

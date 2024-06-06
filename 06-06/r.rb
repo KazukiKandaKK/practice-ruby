@@ -6,8 +6,7 @@ def calc(s_calc)
     num_list = []
     op_list = []
     is_pre_num = true
-    s_calc.each_char {
-        |c| 
+    s_calc.each_char do |c| 
         if ['+', '*', '-', '/', '(', ')'].include?(c) then
             # contain the operand
             op_list.push(c)
@@ -25,7 +24,6 @@ def calc(s_calc)
             num_list.push(c.to_i)
         end
         is_pre_num = true
-    }
     return num_list[0]
 end
 

@@ -11,7 +11,7 @@ def calc(s_calc)
         else
             # contain number.
             if num_list.length>=1 && op_list.length==1 then
-                num_list.push(eval("#{c.to_i}#{op_list.pop}#{num_list.pop.to_i}"))
+                num_list.push(eval("#{num_list.pop.to_i}#{op_list.pop}#{c.to_i}"))
             # if input the two-digit.
             elsif is_pre_num then
                 num_list.push("#{num_list.pop}#{c.to_i}".to_i) 
@@ -25,4 +25,4 @@ def calc(s_calc)
     return num_list[0]
 end
 
-p calc("2*1+2/3")
+p calc("6/3")

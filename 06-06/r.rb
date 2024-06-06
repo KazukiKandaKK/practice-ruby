@@ -2,6 +2,23 @@
 # Practicing Ruby by calculating expressions entered
 # from the command line in reverse Polish notation.
 ######################################################
+
+def apply_operator(op_list, num_list)
+    op = op_list.pop
+    a = num_list.pop
+    b = num_list.pop
+    case op
+    when "+"
+        num_list.push(b+a)
+    when "-"
+        num_list.push(b-a)
+    when "*"
+        num_list.push(b*a)
+    when "/"
+        num_list.push(b/a)
+    end
+end
+
 def calc(s_calc)
     num_list = []
     op_list = []
@@ -15,7 +32,8 @@ def calc(s_calc)
         end
         # contain number.
         if num_list.length>=1 && op_list.length==1 then
-            num_list.push(eval("#{num_list.pop.to_i}#{op_list.pop}#{c.to_i}"))
+            num_list.push(c.to_i)
+            apply_operator(op_list, num_list)
         # if input the two-digit.
         elsif is_pre_num then
             num_list.push("#{num_list.pop}#{c.to_i}".to_i) 
@@ -24,6 +42,7 @@ def calc(s_calc)
             num_list.push(c.to_i)
         end
         is_pre_num = true
+    end
     return num_list[0]
 end
 

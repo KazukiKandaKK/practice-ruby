@@ -9,17 +9,15 @@ def calc(target_num)
             break
         end
     end
-    # p ret
     if ret > 1 then
         calc(ret)
     end
 end
 
-# とりあえず1000までやる。
 target_num = ARGV[0].to_i
 
 # check args
-if target_num <= 1 || target_num > 1000 then
+if target_num <= 1 then
     p "Err"
 end
 

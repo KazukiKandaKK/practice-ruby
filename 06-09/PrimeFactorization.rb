@@ -23,6 +23,7 @@ target_num = ARGV[0].to_i
 # check args
 if target_num <= 1 then
     p "Err"
+    exit(-1)
 end
 
 calc(target_num)
